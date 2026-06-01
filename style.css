@@ -1,0 +1,274 @@
+/* =============================================
+   BIRTHDAY CARD — style.css
+   Fonts: Pacifico (display) + Nunito (body)
+   ============================================= */
+
+/* ---------- RESET ---------- */
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+:root {
+  --orange:  #f4a261;
+  --coral:   #e76f51;
+  --teal:    #2a9d8f;
+  --yellow:  #e9c46a;
+  --dark:    #264653;
+  --cream:   #fff9f0;
+  --border:  #f7c59f;
+  --text:    #444;
+  --muted:   #aaa;
+}
+
+body {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ---------- PAGE LAYOUT ---------- */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* ---------- CARD ---------- */
+.card {
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 28px;
+  padding: 44px 40px 40px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: cardPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes cardPop {
+  from { opacity: 0; transform: scale(0.85) translateY(30px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Decorative background circles */
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+  pointer-events: none;
+}
+.dc1 { width: 160px; height: 160px; background: var(--coral); top: -50px; left: -50px; }
+.dc2 { width: 100px; height: 100px; background: var(--teal);  bottom: -30px; right: -30px; }
+.dc3 { width: 60px;  height: 60px;  background: var(--yellow); top: 30px; right: 20px; }
+
+/* ---------- BOUNCING DOTS ---------- */
+.dots-row {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(1) { background: var(--orange); animation-delay: 0.0s; }
+.dot:nth-child(2) { background: var(--coral);  animation-delay: 0.1s; }
+.dot:nth-child(3) { background: var(--teal);   animation-delay: 0.2s; }
+.dot:nth-child(4) { background: var(--yellow); animation-delay: 0.3s; }
+.dot:nth-child(5) { background: var(--dark);   animation-delay: 0.4s; }
+.dot:nth-child(6) { background: var(--orange); animation-delay: 0.5s; }
+.dot:nth-child(7) { background: var(--coral);  animation-delay: 0.6s; }
+.dot:nth-child(8) { background: var(--teal);   animation-delay: 0.7s; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* ---------- CAKE ---------- */
+.cake {
+  font-size: 80px;
+  display: block;
+  margin-bottom: 14px;
+  animation: wiggle 2.5s infinite ease-in-out;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-4deg) scale(1); }
+  50%       { transform: rotate(4deg) scale(1.08); }
+}
+
+/* ---------- TITLE & NAME ---------- */
+.card-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 38px;
+  color: var(--coral);
+  margin-bottom: 8px;
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+
+.card-name {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  color: var(--teal);
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s ease 0.5s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- DIVIDER ---------- */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 75%;
+  margin: 0 auto 18px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1.5px;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.divider-star {
+  color: var(--yellow);
+  font-size: 18px;
+}
+
+/* ---------- TWINKLING STARS ---------- */
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.star {
+  color: var(--yellow);
+  font-size: 18px;
+  animation: twinkle 1.6s infinite ease-in-out;
+}
+
+.star:nth-child(1) { animation-delay: 0.0s; }
+.star:nth-child(2) { animation-delay: 0.3s; }
+.star:nth-child(3) { animation-delay: 0.6s; }
+.star:nth-child(4) { animation-delay: 0.9s; }
+.star:nth-child(5) { animation-delay: 1.2s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.7); }
+}
+
+/* ---------- MESSAGE ---------- */
+.card-msg {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.9;
+  margin-bottom: 28px;
+  animation: fadeUp 0.8s ease 0.7s both;
+}
+
+/* ---------- BALLOONS ---------- */
+.balloons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.balloon {
+  width: 42px;
+  height: 52px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: relative;
+  animation: floatBalloon 3s infinite ease-in-out;
+}
+
+/* The string */
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1.5px;
+  height: 16px;
+  background: #bbb;
+}
+
+/* Balloon shine */
+.balloon::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  width: 9px;
+  height: 13px;
+  background: rgba(255,255,255,0.35);
+  border-radius: 50%;
+  transform: rotate(-30deg);
+}
+
+.b1 { background: var(--orange); animation-delay: 0.0s; }
+.b2 { background: var(--coral);  animation-delay: 0.4s; }
+.b3 { background: var(--teal);   animation-delay: 0.8s; }
+.b4 { background: var(--yellow); animation-delay: 0.2s; }
+.b5 { background: var(--dark);   animation-delay: 0.6s; }
+
+@keyframes floatBalloon {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%       { transform: translateY(-14px) rotate(2deg); }
+}
+
+/* ---------- FOOTER ---------- */
+.card-footer {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.card-footer strong {
+  color: var(--coral);
+  font-weight: 700;
+}
+
+/* ---------- CONFETTI PIECES (created by JS) ---------- */
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  top: -20px;
+  animation: fall linear forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes fall {
+  0%   { transform: translateY(0) rotate(0deg);   opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 520px) {
+  .card { padding: 32px 24px 30px; }
+  .card-title { font-size: 30px; }
+  .card-name  { font-size: 22px; }
+  .cake { font-size: 64px; }
+}
