@@ -22,9 +22,8 @@ This project features animated confetti, floating balloons, decorative elements,
 
 - HTML5
 - CSS3
-- JavaScript (Vanilla JS)
-- Google Fonts
-
+- JavaScript
+  
 ## 📂 Project Structure
 
 ```
@@ -46,14 +45,6 @@ Interactive birthday card featuring:
 - Personalized wishes
 - Responsive layout
 
-## 🌟 Future Improvements
-
-- Music playback
-- Multiple card themes
-- Custom images
-- Download as image/PDF
-- Share via social media
-- Name input form
 
 ## 👨‍💻 Author
 
